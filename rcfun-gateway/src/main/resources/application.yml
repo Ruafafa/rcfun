@@ -1,0 +1,15 @@
+server:
+  port: 23330
+
+spring:
+  application:
+    name: rcfun-app-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        refresh-enabled: true
+  config:
+    import: nacos:rcfun-gateway.yml
