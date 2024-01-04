@@ -10,8 +10,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 // mb mapper 扫描路径
 @MapperScan({"user.mapper"})
-public class UserApplication {
+public class AppUserApplication {
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class, args);
+        SpringApplication.run(AppUserApplication.class, args);
     }
 }

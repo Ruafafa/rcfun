@@ -21,6 +21,7 @@
 
     <modules>
         <module>rcfun-user</module>
+        <module>rcfun-article</module>
     </modules>
 
     <dependencies>

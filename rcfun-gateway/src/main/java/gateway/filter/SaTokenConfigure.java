@@ -22,10 +22,9 @@ public class SaTokenConfigure {
                 // 鉴权方法：每次访问进入
                 .setAuth(obj -> {
                     // 登录校验 -- 拦截所有路由，并排除/user/doLogin 用于开放登录
-                    SaRouter.match("/**", "/user/api/*/login/**", r -> StpUtil.checkLogin());
+                    SaRouter.match("/**", "/*/api/**", r -> StpUtil.checkLogin());
 
                     // 权限认证 -- 不同模块, 校验不同权限
-
 
                     // 更多匹配 ...  */
                 })
