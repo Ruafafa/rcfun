@@ -1,9 +1,9 @@
 package user.service;
 
-import model.common.dtos.ResponseResultVO;
+import com.baomidou.mybatisplus.extension.service.IService;
+import model.common.vo.ResponseResultVO;
 import model.user.dto.LoginDto;
 import model.user.pojos.ApUser;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 
 public interface ApUserService extends IService<ApUser> {

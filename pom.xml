@@ -20,6 +20,8 @@
         <module>rcfun-test</module>
         <module>rcfun-feign-api</module>
         <module>rcfun-service/rcfun-user</module>
+        <module>rcfun-basic</module>
+        <module>rcfun-basic/rcfun-file-starter</module>
     </modules>
 
     <!-- 设置打包方式为 pom -->
@@ -54,6 +56,10 @@
         <knife4j.version>4.1.0</knife4j.version>
         <!-- sa-token -->
         <sa-token.version>1.37.0</sa-token.version>
+        <!-- freemarker -->
+        <freemarker.version>3.1.2</freemarker.version>
+        <!-- mini.io -->
+        <minio.version>8.5.7</minio.version>
     </properties>
 
     <!-- 管理子类所有的jar包的版本，这样的目的是方便去统一升级和维护 -->
@@ -83,6 +89,11 @@
             <dependency>
                 <groupId>com.ruafafa</groupId>
                 <artifactId>rcfun-feign-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ruafafa</groupId>
+                <artifactId>rcfun-file-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!-- springboot parent -->
@@ -156,26 +167,23 @@
                 <artifactId>sa-token-redis-jackson</artifactId>
                 <version>${sa-token.version}</version>
             </dependency>
+            <!-- freemarker -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+            <!-- minio -->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <!-- 所有的子工程都会自动加入下面的依赖  -->
     <dependencies>
-        <!-- 服务发现 -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-        <!-- 配置中心 -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
-        <!-- 负载均衡 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-loadbalancer</artifactId>
-        </dependency>
         <dependency>
             <groupId>cn.dev33</groupId>
             <artifactId>sa-token-reactor-spring-boot3-starter</artifactId>

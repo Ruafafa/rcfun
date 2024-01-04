@@ -4,11 +4,14 @@ package user.controller.v1;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import model.common.dtos.ResponseResultVO;
+import lombok.extern.slf4j.Slf4j;
+import model.common.vo.ResponseResultVO;
 import model.user.dto.LoginDto;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import user.service.ApUserService;
-
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/login")
@@ -25,6 +28,8 @@ public class ApUserLoginController {
     @GetMapping("/login")
     @Operation(summary = "用户登录")
     public String login1() {
+        // 获取request对象
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         return "hihi";
     }
 

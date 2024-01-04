@@ -1,0 +1,6 @@
+minio:
+  accessKey: admin
+  secretKey: 12345678
+  bucket: ncfun
+  endpoint: http://127.0.0.1:19000
+  readPath: http://127.0.0.1:19000

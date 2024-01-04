@@ -1,4 +1,4 @@
-package model.common.dtos;
+package model.common.vo;
 
 
 import model.common.enums.AppHttpStatusEnum;
