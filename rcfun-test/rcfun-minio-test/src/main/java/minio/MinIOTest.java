@@ -1,19 +1,17 @@
 package minio;
 
+
 import file.service.FileStorageService;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
 import jakarta.annotation.Resource;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 @SpringBootTest(classes = {MinIODemoApplication.class, FileStorageService.class})
-@RunWith(SpringRunner.class)
 public class MinIOTest {
     @Resource
     private FileStorageService fileStorageService;

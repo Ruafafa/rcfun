@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="article.mapper.ApArticleMapper">
+
+    <resultMap id="BaseResultMap" type="model.article.pojos.ApArticle">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="authorId" column="author_id" jdbcType="INTEGER"/>
+            <result property="authorName" column="author_name" jdbcType="VARCHAR"/>
+            <result property="channelId" column="channel_id" jdbcType="INTEGER"/>
+            <result property="channelName" column="channel_name" jdbcType="VARCHAR"/>
+            <result property="layout" column="layout" jdbcType="TINYINT"/>
+            <result property="flag" column="flag" jdbcType="TINYINT"/>
+            <result property="images" column="images" jdbcType="VARCHAR"/>
+            <result property="labels" column="labels" jdbcType="VARCHAR"/>
+            <result property="likes" column="likes" jdbcType="INTEGER"/>
+            <result property="collection" column="collection" jdbcType="INTEGER"/>
+            <result property="comment" column="comment" jdbcType="INTEGER"/>
+            <result property="views" column="views" jdbcType="INTEGER"/>
+            <result property="provinceId" column="province_id" jdbcType="INTEGER"/>
+            <result property="cityId" column="city_id" jdbcType="INTEGER"/>
+            <result property="countyId" column="county_id" jdbcType="INTEGER"/>
+            <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+            <result property="publishTime" column="publish_time" jdbcType="TIMESTAMP"/>
+            <result property="syncStatus" column="sync_status" jdbcType="TINYINT"/>
+            <result property="origin" column="origin" jdbcType="TINYINT"/>
+            <result property="staticUrl" column="static_url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- [SQL_MEANING]:
+        从ap_article表和ap_article_config表中选择所有的列，两个表通过id和article_id列进行左连接。
+    筛选出没有被删除（is_delete != 1）和没有被下架（is_down != 1）的文章。
+    根据type参数的值，选择发布时间在某个范围内的文章，如果type为1，表示选择发布时间小于dto.minBehotTime的文章，如果type为2，表示选择发布时间大于dto.maxBehotTime的文章。
+    根据dto.tag参数的值，选择某个频道的文章，如果dto.tag不等于__all__，表示选择channel_id等于dto.tag的文章。
+    按照发布时间的降序排序，限制返回的行数为dto.size。
+    -->
+    <sql id="Base_Column_List">
+        SELECT
+        aa.*
+        FROM
+        `ap_article` aa
+        LEFT JOIN ap_article_config aac ON aa.id = aac.article_id
+        <where>
+            and aac.is_delete != 1
+            and aac.is_down != 1
+            <!-- loadmore -->
+            <if test="type != null and type == 1">
+                and aa.publish_time <![CDATA[<]]> #{dto.minBehotTime}
+            </if>
+            <if test="type != null and type == 2">
+                and aa.publish_time <![CDATA[>]]> #{dto.maxBehotTime}
+            </if>
+            <if test="dto.tag != '__all__'">
+                and aa.channel_id = #{dto.tag}
+            </if>
+        </where>
+        order by aa.publish_time desc
+        limit #{dto.size}
+    </sql>
+    <select id="loadArticleList" resultType="model.article.pojos.ApArticle"></select>
+</mapper>

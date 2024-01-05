@@ -1,0 +1,16 @@
+server:
+  port: 23334
+
+spring:
+  application:
+    name: rcfun-schedule
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:18848
+      config:
+        server-addr:  127.0.0.1:18848
+        refresh-enabled: true
+  config:
+    import:
+      - nacos:rcfun-schedule.yml

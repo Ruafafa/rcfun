@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="article.mapper.ApCollectionMapper">
+
+    <resultMap id="BaseResultMap" type="model.article.pojos.ApCollection">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="entryId" column="entry_id" jdbcType="INTEGER"/>
+            <result property="articleId" column="article_id" jdbcType="BIGINT"/>
+            <result property="type" column="type" jdbcType="TINYINT"/>
+            <result property="collectionTime" column="collection_time" jdbcType="TIMESTAMP"/>
+            <result property="publishedTime" column="published_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,entry_id,article_id,
+        type,collection_time,published_time
+    </sql>
+</mapper>

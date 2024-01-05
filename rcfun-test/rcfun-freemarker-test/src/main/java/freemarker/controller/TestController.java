@@ -1,16 +1,15 @@
 package freemarker.controller;
 
+
 import freemarker.FreemarkerDemoApplication;
 import freemarker.model.StudentVO;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.stereotype.Controller;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -21,7 +20,7 @@ import java.util.*;
 // 注意这里是非REST风格API，所以不需要@RestController
 @Controller
 @SpringBootTest(classes = FreemarkerDemoApplication.class)
-@RunWith(SpringRunner.class)
+
 public class TestController {
 
     //freeMarker configuration
