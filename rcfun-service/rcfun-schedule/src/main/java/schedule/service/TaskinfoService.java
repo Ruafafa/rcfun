@@ -10,4 +10,5 @@ import model.schedule.pojos.Taskinfo;
 */
 public interface TaskinfoService extends IService<Taskinfo> {
 
+
 }

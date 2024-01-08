@@ -3,7 +3,7 @@ package article.controller.v1;
 import article.service.ApArticleService;
 import common.constant.ArticleConstants;
 import lombok.RequiredArgsConstructor;
-import model.article.dto.ArticleHomeDto;
+import model.article.dtos.ArticleHomeDto;
 import model.common.vo.ResponseResultVO;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

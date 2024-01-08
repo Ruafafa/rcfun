@@ -5,7 +5,7 @@ import article.service.ApArticleService;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import common.constant.ArticleConstants;
-import model.article.dto.ArticleHomeDto;
+import model.article.dtos.ArticleHomeDto;
 import model.article.pojos.ApArticle;
 import model.common.vo.ResponseResultVO;
 import org.springframework.beans.factory.annotation.Autowired;

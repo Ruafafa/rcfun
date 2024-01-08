@@ -1,7 +1,7 @@
 package article.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import model.article.dto.ArticleHomeDto;
+import model.article.dtos.ArticleHomeDto;
 import model.article.pojos.ApArticle;
 import model.common.vo.ResponseResultVO;
 

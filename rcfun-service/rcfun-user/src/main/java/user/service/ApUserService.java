@@ -2,7 +2,7 @@ package user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import model.common.vo.ResponseResultVO;
-import model.user.dto.LoginDto;
+import model.user.dtos.LoginDto;
 import model.user.pojos.ApUser;
 
 

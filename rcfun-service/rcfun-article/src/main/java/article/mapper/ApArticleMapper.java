@@ -1,7 +1,7 @@
 package article.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import model.article.dto.ArticleHomeDto;
+import model.article.dtos.ArticleHomeDto;
 import model.article.pojos.ApArticle;
 import org.apache.ibatis.annotations.Param;
 
